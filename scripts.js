@@ -1,3 +1,4 @@
+/* eslint-env browser */
 function wget (url, cb) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url, true)
@@ -19,18 +20,18 @@ var REU_NEWS_URL = 'http://uk.reuters.com/assets/breakingNews?view=json'
 
 var output = {}
 
-function sendNews(provider, header, headline) {
+function sendNews (provider, header, headline) {
   if (header && headline) {
     var h1 = document.createElement('h1')
     h1.innerHTML = header
     var p = document.createElement('p')
     p.innerHTML = headline
-  
+
     var div = document.createElement('div')
     div.className = provider
     div.appendChild(h1)
     div.appendChild(p)
-  
+
     output[provider] = div
   } else {
     delete output[provider]
@@ -65,14 +66,14 @@ function poll () {
   })
 }
 
-function displayNews() {
+function displayNews () {
   var news = document.createElement('div')
   news.className = 'news'
   news.id = 'news'
-  
+
   var newsSources = Object.keys(output)
   newsSources.sort()
-  
+
   for (var i = 0; i < newsSources.length; i++) {
     news.appendChild(output[newsSources[i]])
   }
@@ -83,7 +84,7 @@ function displayNews() {
   parent.replaceChild(news, old)
 }
 
-function setup() {
+function setup () {
   poll()
   window.setInterval(displayNews, 2000)
   displayNews()
