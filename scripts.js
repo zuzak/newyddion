@@ -84,9 +84,24 @@ function displayNews () {
   parent.replaceChild(news, old)
 }
 
+
+
+const clockTick = function () {
+  var now = new Date()
+  var str = now.toLocaleTimeString().split(':')
+  var ul = document.getElementById('js-clock')
+  ul.innerHTML = ''
+  for (var i = 0; i < str.length; i++) {
+    var li = document.createElement('li')
+    li.textContent = str[i]
+    ul.appendChild(li)
+  }
+}
+
 function setup () {
   poll()
   window.setInterval(displayNews, 2000)
+  window.setInterval(clockTick, 100)
   displayNews()
 }
 

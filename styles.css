@@ -60,7 +60,35 @@ body, html {
 
 
 .placeholder {
-    color: #333;
+    color: rgba(33%, 33%, 33%, 0.2);
     background-color: #bbb;
 
+}
+
+.clock {
+    font-size: 10vh;
+    position: fixed;
+    left: 1em;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.2em;
+    border-radius: 0.2em;
+}
+
+.clock li {
+    display: inline-block;
+    font-family: 'Source Sans Pro';
+
+}
+.clock li::before{
+    content: ':';
+}
+.clock li:nth-child(1)::before {
+    content: ''
+}
+.clock li:last-child {
+    content: '';
+    opacity: 0.3;
+    color: black;
+    font-size: 0.8em;
 }
