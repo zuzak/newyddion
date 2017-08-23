@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+div, h2, p {
+    margin: 0;
+}
+body, html {
+    height: 100vh;
+    margin: 0;
+}
+.news {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.news div {
+    display: flex;
+    justify-content: space-evenly;
+
+    flex-direction: column;
+    font-size: 3vh;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    padding: 0 1em;
+
+    text-align: center;
+}
+
+.bbc {
+    color: #F2EFEC;
+    background-color: #BB1919;
+    font-family:'Gill Sans', 'Gill Sans MT', Lato, Calibri, sans-serif;
+}
+.reu {
+    background-color: #333333;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.reu h2 {
+    color: #FB7E00;
+}
+
+.gdn {
+    background-color: #005689;
+    color: #FFFFFF;
+    font-family: 'Merriweather', serif;
+}
+.gdn h2 {
+    color: #AADCE6;
+}
+.ft {
+    background-color: #FFF1E5;
+    color: #33302E;
+    font-family: serif;
+}
+
+
+.placeholder {
+    color: #333;
+    background-color: #bbb;
+
+}
