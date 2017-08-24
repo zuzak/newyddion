@@ -95,7 +95,6 @@ function poll () {
 function displayNews () {
   var news = document.createElement('div')
   news.className = 'news'
-  news.id = 'news'
 
   var newsSources = Object.keys(output)
   newsSources.sort()
@@ -104,10 +103,13 @@ function displayNews () {
     news.appendChild(output[newsSources[i]])
   }
 
-  var old = document.getElementById('news')
-
-  var parent = old.parentNode
-  parent.replaceChild(news, old)
+  var old = document.querySelector('.news')
+  if (old) {
+    var parent = old.parentNode
+    parent.replaceChild(news, old)
+  } else {
+    console.error('No news to replace?')
+  }
 }
 
 
