@@ -22,6 +22,7 @@ body, html {
 }
 .news div {
     display: flex;
+    justify-content: center;
     justify-content: space-evenly;
 
     flex-direction: column;
