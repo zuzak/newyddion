@@ -49,7 +49,7 @@ function poll () {
       }
     }
   })
-  wget(GDN_NEWS_URL, function (err, response) {
+  /*wget(GDN_NEWS_URL, function (err, response) {
     if (!err) {
       var story = response.collections[0].content[0]
       if (story) {
@@ -58,9 +58,9 @@ function poll () {
         sendNews('gdn')
       }
     }
-  })
+  })*/
   wget(REU_NEWS_URL, function (err, story) {
-    if (!err) {
+    if (!err && story) {
       sendNews('reu', story.label, story.headline)
     }
   })
