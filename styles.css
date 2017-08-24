@@ -30,6 +30,9 @@ body, html {
     text-align: center;
 }
 
+.news:empty {
+    display: none;
+}
 .bbc {
     color: #F2EFEC;
     background-color: #BB1919;
@@ -91,4 +94,23 @@ body, html {
     opacity: 0.3;
     color: black;
     font-size: 0.8em;
+}
+.weather {
+    font-size: 3vh;
+    font-family: 'Source Sans Pro';
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0em;
+    text-align: right;
+    color: rebeccapurple;
+    margin-right: 2em;
+}
+
+.weather li:first-child {
+    font-size: 4em;
+}
+.weather ul {
+    list-style-type: none;
+    margin-top: 1em;
+    font-size: 2em;
 }

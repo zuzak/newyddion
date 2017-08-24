@@ -64,6 +64,32 @@ function poll () {
       sendNews('reu', story.label, story.headline)
     }
   })
+  wget('https://files.chippy.ch/newsboard/weather.php', function (err, weather) {
+    if (!err) {
+      var ul = document.createElement('ul')
+      ul.className = 'weather'
+      ul.id = 'js-weather'
+      for (var i = 0; i < weather.forecast.length; i++) {
+        var li = document.createElement('li')
+
+        var current = weather.forecast[i]
+        if (Array.isArray(current)) {
+          var ul2 = document.createElement('ul')
+          for (var j = 0; j < current.length; j++) {
+            var li2 = document.createElement('li')
+            li2.innerHTML = current[j]
+            ul2.appendChild(li2)
+          }
+          li.appendChild(ul2)
+        } else {
+          li.innerHTML = weather.forecast[i]
+        }
+        ul.appendChild(li)
+      }
+      var old = document.getElementById('js-weather')
+      old.parentNode.replaceChild(ul, old)
+    }
+  })
 }
 
 function displayNews () {
