@@ -130,6 +130,7 @@ function setup () {
   poll()
   window.setInterval(displayNews, 2000)
   window.setInterval(clockTick, 100)
+  window.setInterval(poll, 30000)
   displayNews()
 }
 
