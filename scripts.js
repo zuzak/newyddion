@@ -16,7 +16,7 @@ function wget (url, cb) {
 
 var BBC_NEWS_URL = 'https://polling.bbc.co.uk/news/latest_breaking_news_waf'
 var GDN_NEWS_URL = 'https://api.nextgen.guardianapps.co.uk/news-alert/alerts'
-var REU_NEWS_URL = 'http://uk.reuters.com/assets/breakingNews?view=json'
+var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of http://uk.reuters.com/assets/breakingNews?view=json
 
 var output = {}
 
