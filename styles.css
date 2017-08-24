@@ -76,7 +76,7 @@ body, html {
 }
 
 .clock {
-    font-size: 10vh;
+    font-size: 20vh;
     position: fixed;
     left: 1em;
     top: 0;
