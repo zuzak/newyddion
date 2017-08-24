@@ -26,13 +26,13 @@ body, html {
     justify-content: space-evenly;
 
     flex-direction: column;
-    font-size: 3vh;
+    font-size: 10vh;
 
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
 
-    padding: 0 1em;
+    padding: 0 3em;
 
     text-align: center;
 }
