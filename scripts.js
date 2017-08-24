@@ -22,14 +22,14 @@ var output = {}
 
 function sendNews (provider, header, headline) {
   if (header && headline) {
-    var h1 = document.createElement('h1')
-    h1.innerHTML = header
+    var h2 = document.createElement('h2')
+    h2.innerHTML = header
     var p = document.createElement('p')
     p.innerHTML = headline
 
     var div = document.createElement('div')
     div.className = provider
-    div.appendChild(h1)
+    div.appendChild(h2)
     div.appendChild(p)
 
     output[provider] = div
