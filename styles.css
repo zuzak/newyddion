@@ -26,7 +26,7 @@ body, html {
     justify-content: space-evenly;
 
     flex-direction: column;
-    font-size: 5vh;
+    font-size: 7vh;
 
     flex-grow: 1;
     flex-shrink: 1;
