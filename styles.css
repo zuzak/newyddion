@@ -121,3 +121,7 @@ body, html {
     margin-top: 1em;
     font-size: 2em;
 }
+
+.description {
+    font-size: 50%;
+}

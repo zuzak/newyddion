@@ -13,14 +13,15 @@ function wget (url, cb) {
   }
   xhr.send()
 }
-
+gi
 var BBC_NEWS_URL = 'https://polling.bbc.co.uk/news/latest_breaking_news_waf'
 var GDN_NEWS_URL = 'https://api.nextgen.guardianapps.co.uk/news-alert/alerts'
 var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of http://uk.reuters.com/assets/breakingNews?view=json
+var BBC_LOCAL_URL = 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fengland%2Fsouth_yorkshire%2Frss.xml'
 
 var output = {}
 
-function sendNews (provider, header, headline) {
+function sendNews (provider, header, headline, description) {
   if (header && headline) {
     var h2 = document.createElement('h2')
     h2.innerHTML = header
@@ -31,6 +32,13 @@ function sendNews (provider, header, headline) {
     div.className = provider
     div.appendChild(h2)
     div.appendChild(p)
+
+    if (description) {
+      var desc = document.createElement('p')
+      desc.className = 'description'
+      desc.innerHTML = description
+      div.appendChild(desc)
+    }
 
     output[provider] = div
   } else {
