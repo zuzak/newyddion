@@ -60,8 +60,12 @@ function poll () {
     }
   })*/
   wget(REU_NEWS_URL, function (err, story) {
-    if (!err && story) {
-      sendNews('reu', story.label, story.headline)
+    if (!err) {
+      if (story) {
+        sendNews('reu', story.label, story.headline)
+      } else {
+        sendNews('reu')
+      }
     }
   })
   wget('https://files.chippy.ch/newsboard/weather.php', function (err, weather) {
