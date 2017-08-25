@@ -40,7 +40,7 @@ body, html {
 .news:empty {
     display: none;
 }
-.bbc {
+.bbc, .bbc-local {
     color: #F2EFEC;
     background-color: #BB1919;
     font-family:'Gill Sans', 'Gill Sans MT', Lato, Calibri, sans-serif;
@@ -68,6 +68,11 @@ body, html {
     font-family: serif;
 }
 
+.bbc-local {
+    /* colour scheme c.1999 */
+    background-color: #FFFFCC;
+    color: #990000;
+}
 
 .placeholder {
     color: rgba(33%, 33%, 33%, 0.2);

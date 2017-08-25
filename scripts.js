@@ -13,7 +13,7 @@ function wget (url, cb) {
   }
   xhr.send()
 }
-gi
+
 var BBC_NEWS_URL = 'https://polling.bbc.co.uk/news/latest_breaking_news_waf'
 var GDN_NEWS_URL = 'https://api.nextgen.guardianapps.co.uk/news-alert/alerts'
 var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of http://uk.reuters.com/assets/breakingNews?view=json
@@ -102,6 +102,20 @@ function poll () {
       old.parentNode.replaceChild(ul, old)
     }
   })
+  wget(BBC_LOCAL_URL, function (err, data) {
+    if (!err && data.status === 'ok') {
+      var title = data.feed.title
+      var news = data.items
+      var dateThreshold = Date.now() - 1000 * 60 * 60 // 1hr
+      for (var i = 0; i < news.length; i++) {
+        var newsDate = new Date(news[i].pubDate)
+        if (newsDate > dateThreshold) {
+          sendNews('bbc-local', title.split(' - ')[1], news[i].title, news[i].description)
+        }
+      }
+    }
+  })
+  // sendNews('bbc-local', 'Sheffield', 'Foo bar baz')
 }
 
 function displayNews () {
