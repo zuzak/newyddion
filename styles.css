@@ -90,6 +90,10 @@ body, html {
     margin: 0;
 }
 
+.screenSaver .clock {
+    left: inherit;
+    right: 3vw;
+}
 .clock li {
     display: inline-block;
     font-family: 'Source Sans Pro';
@@ -116,6 +120,11 @@ body, html {
     text-align: right;
     color: rebeccapurple;
     margin-right: 2em;
+}
+.screenSaver .weather {
+    text-align: left;
+    margin-left: 4em;
+    margin-right: 0;
 }
 
 .weather li:first-child {

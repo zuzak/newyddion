@@ -148,6 +148,11 @@ const clockTick = function () {
     li.textContent = str[i]
     ul.appendChild(li)
   }
+  if (now.getHours() % 2) {
+    document.getElementById('js-body').className = ' screenSaver'
+  } else {
+    document.getElementById('js-body').className = null
+  }
 }
 
 function setup () {
