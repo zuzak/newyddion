@@ -160,10 +160,14 @@ const clockTick = function () {
     li.textContent = str[i]
     ul.appendChild(li)
   }
+  var body = document.getElementById('js-body')
+  var screenSaverClass = 'screenSaver'
   if (now.getHours() % 2) {
-    document.getElementById('js-body').className = ' screenSaver'
+    if (body.className.indexOf(screenSaverClass) === -1) {
+      body.className += ' ' + screenSaverClass
+    }
   } else {
-    document.getElementById('js-body').className = null
+    document.getElementById('js-body').className.replace(' ' + screenSaverClass, '')
   }
 }
 
