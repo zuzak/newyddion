@@ -129,6 +129,11 @@ function poll () {
     sendNews('reu-wire')
   })
   // sendNews('bbc-local', 'Sheffield', 'Foo bar baz')
+  if (!navigator.onLine) {
+    sendNews('placeholder', 'Offline!', 'Waiting for network connection...')
+  } else {
+    sendNews('placeholder')
+  }
 }
 
 function displayNews () {
