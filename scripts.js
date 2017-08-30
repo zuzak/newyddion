@@ -126,6 +126,7 @@ function poll () {
         }
       }
     }
+    sendNews('reu-wire')
   })
   // sendNews('bbc-local', 'Sheffield', 'Foo bar baz')
 }
