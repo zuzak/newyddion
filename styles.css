@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import url('https://fonts.googleapis.com/css?family=Lato');
-@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+@import url('https://fonts.googleapis.com/css?family=Capriola');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import url('https://fonts.googleapis.com/css?family=VT323');
 
@@ -124,7 +124,7 @@ body, html {
 }
 .weather {
     font-size: 3vh;
-    font-family: 'Archivo Black';
+    font-family: 'Capriola';
     list-style-type: none;
     margin-left: 0;
     padding: 0em;
