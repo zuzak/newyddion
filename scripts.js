@@ -122,7 +122,7 @@ function poll () {
         var story = data.headlines[i]
         var storyDate = new Date(parseInt(story.dateMillis))
         if (storyDate > dateThreshold) {
-          sendNews('reu-wire', 'Reuters', story.headline, story.formattedDate)
+          return sendNews('reu-wire', 'Reuters', story.headline, story.formattedDate)
         }
       }
     }
