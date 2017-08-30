@@ -46,13 +46,22 @@ body, html {
     font-family:'Gill Sans', 'Gill Sans MT', Lato, Calibri, sans-serif;
 }
 .reu {
-    background-color: #333333;
+    background-color: #fb7e00;
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
 }
 .reu h2 {
-    color: #FB7E00;
+    color: black;
 }
+.reu-wire {
+    background-color: #333333;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.reu-wire h2 {
+    color: #fb7e00;
+}
+
 
 .gdn {
     background-color: #005689;

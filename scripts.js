@@ -18,7 +18,7 @@ var BBC_NEWS_URL = 'https://polling.bbc.co.uk/news/latest_breaking_news_waf'
 var GDN_NEWS_URL = 'https://api.nextgen.guardianapps.co.uk/news-alert/alerts'
 var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of http://uk.reuters.com/assets/breakingNews?view=json
 var BBC_LOCAL_URL = 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fengland%2Fsouth_yorkshire%2Frss.xml'
-
+var REUTERS_WIRE_URL = 'https://files.chippy.ch/newsboard/reuterswire.php' // proxy of https://uk.reuters.com/assets/jsonWireNews#'
 var output = {}
 
 function sendNews (provider, header, headline, description) {
@@ -111,6 +111,18 @@ function poll () {
         var newsDate = new Date(news[i].pubDate)
         if (newsDate > dateThreshold) {
           sendNews('bbc-local', title.split(' - ')[1], news[i].title, news[i].description)
+        }
+      }
+    }
+  })
+  wget(REUTERS_WIRE_URL, function (err, data) {
+    if (!err && data.headlines) {    //  ms    s   m
+      var dateThreshold = Date.now() - 1000 * 60 * 2
+      for (var i = 0; i < data.headlines.length; i++) {
+        var story = data.headlines[i]
+        var storyDate = new Date(parseInt(story.dateMillis))
+        if (storyDate > dateThreshold) {
+          sendNews('reu-wire', 'Reuters', story.headline, story.formattedDate)
         }
       }
     }
