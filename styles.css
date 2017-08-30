@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=VT323');
 
 div, h2, p {
     margin: 0;
@@ -106,7 +107,7 @@ body, html {
 }
 .clock li {
     display: inline-block;
-    font-family: 'Source Sans Pro';
+    font-family: 'VT323', 'Source Sans Pro';
 
 }
 .clock li::before{
