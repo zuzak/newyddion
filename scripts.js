@@ -19,6 +19,7 @@ var GDN_NEWS_URL = 'https://api.nextgen.guardianapps.co.uk/news-alert/alerts'
 var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of http://uk.reuters.com/assets/breakingNews?view=json
 var BBC_LOCAL_URL = 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fengland%2Fsouth_yorkshire%2Frss.xml'
 var REUTERS_WIRE_URL = 'https://files.chippy.ch/newsboard/reuterswire.php' // proxy of https://uk.reuters.com/assets/jsonWireNews#'
+var BLOOMBERG_URL = 'https://files.chippy.ch/newsboard/bloomberg.php' // https://www.bloomberg.com/api/modules/id/europe_breaking_news
 var output = {}
 
 function sendNews (provider, header, headline, description) {
@@ -140,6 +141,13 @@ function poll () {
       }
     }
     sendNews('reu-wire')
+  })
+  wget(BLOOMBERG_URL, function (err, data) {
+    console.log('BB', data.items)
+    if (!err && data.items.length > 0) {
+      var story = data.items[0]
+      sendNews('bloomberg', story.editorialTitle, story.headline, story.type)
+    }
   })
   // sendNews('bbc-local', 'Sheffield', 'Foo bar baz')
   if (!navigator.onLine) {
