@@ -101,19 +101,22 @@ function poll () {
       }
       var old = document.getElementById('js-weather')
       old.parentNode.replaceChild(ul, old)
-        new Chartist.Bar('.rainchance', {
-            series: [
-                weather.rainchance
-            ]
-        },{
-          showArea: true,
-            showGrid: false,
-            showLabel: false, 
-            axisY: {
-            high: 1,
-                low: 0
-        }})
+      new Chartist.Line('.rainchance', {
+        series: [
+          weather.rainchance
+        ]
+      }, {
+        showArea: true,
 
+        showLabel: false,
+
+        axisY: {
+          showGrid: false,
+          showPoint: false,
+          showLabel: false,
+          high: 1,
+          low: 0
+        }})
     }
   })
   wget(BBC_LOCAL_URL, function (err, data) {
