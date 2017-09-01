@@ -70,7 +70,8 @@ function poll () {
   }) */
   wget(REU_NEWS_URL, function (err, story) {
     if (!err) {
-      if (story && story.headline !== 'Watch Live') {
+      console.log(story)
+      if (story && story.label !== 'Watch Live') {
         sendNews('reu', story.label, story.headline)
       } else {
         sendNews('reu')
