@@ -103,33 +103,33 @@ function poll () {
       var old = document.getElementById('js-weather')
       old.parentNode.replaceChild(ul, old)
       var labels = new Array(60)
-      labels[5-1] = 'five minutes'
-      labels[10-1] = 'ten'
-      labels[20-1] = 'twenty'
-      labels[30-1] = 'thirty'
-      labels[45-1] = 'forty-five'
-      labels[60-1] = 'sixty'
-      
+      labels[5 - 1] = 'five minutes'
+      labels[10 - 1] = 'ten'
+      labels[20 - 1] = 'twenty'
+      labels[30 - 1] = 'thirty'
+      labels[45 - 1] = 'forty-five'
+      labels[60 - 1] = 'sixty'
+
       new Chartist.Line('.rainchance', {
         series: [
           weather.rainchance
         ],
         labels: labels
-       }, {
+      }, {
+        plugins: [
+          Chartist.plugins.ctPointLabels({
+            textAnchor: 'middle'
+          })
+        ],
         showArea: true,
         fullWidth: true,
-        showLabel: false,
+        //showLabel: false,
 
         axisY: {
           showGrid: false,
-          showPoint: true,
           showLabel: false,
           high: 1,
-          low: 0,
-        },
-        axisX: {
-          showGrid: false,
-          showPoint: true
+          low: 0
         }
       })
     }
