@@ -129,7 +129,19 @@ function poll () {
           showGrid: false,
           showLabel: false,
           high: 1,
+          offset: 0,
           low: 0
+        },
+        axisX: {
+          showGrid: false,
+          showLabel: false,
+          offset: 0
+        },
+        chartPadding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0
         }
       })
     }
