@@ -160,6 +160,10 @@ body, html {
     opacity: 0.8;
 }
 .ct-bar, .ct-line, .ct-point, .ct-area {
-    stroke: blue !important;
+    stroke-opacity: 0;
+}
+.ct-area {
+    fill-opacity: 0.3;
+    fill: darkblue !important;
 
 }
