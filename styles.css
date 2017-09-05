@@ -166,8 +166,14 @@ body, html {
 .ct-bar, .ct-line, .ct-point, .ct-area {
     stroke-opacity: 0;
 }
-.ct-area {
+.ct-series-a .ct-area {
     fill-opacity: 1;
     fill: darkblue !important;
+
+}
+
+.ct-series-b .ct-area {
+    fill-opacity: 0.2;
+    fill: lightblue !important;
 
 }

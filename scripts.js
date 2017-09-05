@@ -112,7 +112,8 @@ function poll () {
 
       new Chartist.Line('.rainchance', {
         series: [
-          weather.rainchance
+          weather.rainchance,
+          weather.rainintensity
         ],
         labels: labels
       }, {
