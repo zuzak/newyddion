@@ -169,11 +169,12 @@ body, html {
 .ct-series-a .ct-area {
     fill-opacity: 1;
     fill: darkblue !important;
-
+    z-index: 0;
 }
 
 .ct-series-b .ct-area {
-    fill-opacity: 0.2;
+    fill-opacity: 0.8;
     fill: lightblue !important;
+    z-index: -1;
 
 }
