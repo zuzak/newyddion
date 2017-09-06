@@ -186,6 +186,11 @@ function poll () {
   } else {
     sendNews('placeholder')
   }
+  wget('https://jaffa.chippy.ch/count.json', function (err, data) {
+    if (!err) {
+      document.getElementById('js-jaffa').innerHTML = data
+    }
+  })
 }
 
 function displayNews () {

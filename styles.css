@@ -138,6 +138,22 @@ body, html {
     margin-left: 2em;
     margin-right: 0;
 }
+.jaffacake {
+  font-family: 'Source Sans Pro';
+  position: fixed;
+  left: 3vw;
+  bottom: 3vh;
+  color: orange;
+}
+.screenSaver .jaffacake {
+    right: 3vw;
+    bottom: 3vh;
+
+}
+.jaffacake span {
+    display: block;
+    font-size: 3em;
+}
 
 .weather li:first-child {
     font-size: 4em;
