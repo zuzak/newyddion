@@ -194,3 +194,24 @@ body, html {
     z-index: -1;
 
 }
+
+.travis {
+    background-color: lightslategrey;
+    font-family: 'Source Sans Pro';
+    color: lightgoldenrodyellow;
+}
+.travis .passed {
+    color: greenyellow;
+}
+.travis .created {
+    color: yellow;
+}
+.travis .failed {
+    color: tomato;
+}
+.travis .errored {
+    color: red;
+}
+.travis .started {
+    color: cyan;
+}

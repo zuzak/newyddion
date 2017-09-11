@@ -48,6 +48,29 @@ function sendNews (provider, header, headline, description) {
 }
 
 function poll () {
+  wget('https://files.chippy.ch/newsboard/travis.json', function (err, repos) {
+    if (!err) {
+      for (var i = 0; i < repos.length; i++) {
+        wget('https://api.travis-ci.org/repos/' + repos[i] + '/branches/master', function (err, response) {
+          console.log(repos[i])
+          if (!err) {
+            var state = response.branch.state
+            if (state !== 'passed') {
+              var str = [
+                response.commit.message,
+                null,
+                response.commit.author_name + ' on ' + response.commit.branch,
+                '<span class="' + state + '">Build ' + state + '</span>'
+              ].join('<br>')
+              sendNews('travis', 'Removals Wallboard #' + response.branch.number, str)
+            } else {
+              sendNews('travis')
+            }
+          }
+        })
+      }
+    }
+  })
   wget(BBC_NEWS_URL, function (err, response) {
     if (!err) {
       var story = response.asset
