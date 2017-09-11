@@ -72,7 +72,7 @@ function poll () {
     if (!err) {
       console.log(story)
       var blackList = [ 'Watch Live', 'Live Coverage' ]
-      if (story && blackList.indexOf(story.label) !== -1) {
+      if (story && blackList.indexOf(story.label) === -1) {
         sendNews('reu', story.label, story.headline)
       } else {
         sendNews('reu')
