@@ -71,7 +71,8 @@ function poll () {
   wget(REU_NEWS_URL, function (err, story) {
     if (!err) {
       console.log(story)
-      if (story && story.label !== 'Watch Live') {
+      var blackList = [ 'Watch Live', 'Live Coverage' ]
+      if (story && blackList.indexOf(story.label) !== -1) {
         sendNews('reu', story.label, story.headline)
       } else {
         sendNews('reu')
