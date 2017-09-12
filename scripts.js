@@ -52,7 +52,6 @@ function poll () {
     if (!err) {
       for (var i = 0; i < repos.length; i++) {
         wget('https://api.travis-ci.org/repos/' + repos[i] + '/branches/master', function (err, response) {
-          console.log(repos[i])
           if (!err) {
             var state = response.branch.state
             if (state !== 'passed') {
@@ -93,7 +92,6 @@ function poll () {
   }) */
   wget(REU_NEWS_URL, function (err, story) {
     if (!err) {
-      console.log(story)
       var blackList = [ 'Watch Live', 'Live Coverage' ]
       if (story && blackList.indexOf(story.label) === -1) {
         sendNews('reu', story.label, story.headline)
@@ -198,7 +196,6 @@ function poll () {
     sendNews('reu-wire')
   })
   wget(BLOOMBERG_URL, function (err, data) {
-    console.log('BB', data.items)
     if (!err && data.items.length > 0) {
       var story = data.items[0]
       sendNews('bloomberg', story.editorialTitle, story.headline, story.type)
