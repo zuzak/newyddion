@@ -20,6 +20,7 @@ var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of h
 var BBC_LOCAL_URL = 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fengland%2Fsouth_yorkshire%2Frss.xml'
 var REUTERS_WIRE_URL = 'https://files.chippy.ch/newsboard/reuterswire.php' // proxy of https://uk.reuters.com/assets/jsonWireNews#'
 var BLOOMBERG_URL = 'https://files.chippy.ch/newsboard/bloomberg.php' // https://www.bloomberg.com/api/modules/id/europe_breaking_news
+var MI5_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.mi5.gov.uk/UKThreatLevel/UKThreatLevel.xml'
 var output = {}
 
 function sendNews (provider, header, headline, description) {
@@ -68,6 +69,13 @@ function poll () {
           }
         })
       }
+    }
+  })
+  wget(MI5_URL, function (err, response) {
+    if (!err && response.status === 'ok') {
+      var str = response.items[0].title
+      var level = str.substr(str.search(/[A-Z]+$/))
+      document.getElementById('js-threatlevel').innerHTML = level
     }
   })
   wget(BBC_NEWS_URL, function (err, response) {
@@ -207,11 +215,6 @@ function poll () {
   } else {
     sendNews('placeholder')
   }
-  wget('https://jaffa.chippy.ch/count.json', function (err, data) {
-    if (!err) {
-      document.getElementById('js-jaffa').innerHTML = data
-    }
-  })
 }
 
 function displayNews () {

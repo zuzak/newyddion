@@ -123,6 +123,23 @@ body, html {
     color: black;
     font-size: 0.8em;
 }
+.threatlevel {
+    position: fixed;
+    left: 3vh;
+    bottom: 3vh;
+    font-family: 'Source Sans Pro';
+    color: tomato;
+    text-align: center;
+    z-index: -2;
+}
+.screenSaver .threatlevel {
+    left: inherit;
+    right: 3vh;
+}
+.threatlevel span {
+    font-size: 3em;
+    display:block;
+}
 .weather {
     font-size: 2vw;
     font-family: 'Source Sans Pro';
