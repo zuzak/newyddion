@@ -75,7 +75,13 @@ function poll () {
     if (!err && response.status === 'ok') {
       var str = response.items[0].title
       var level = str.substr(str.search(/[A-Z]+$/))
-      document.getElementById('js-threatlevel').innerHTML = level
+      var div = document.querySelector('.threatlevel')
+
+      if (level !== 'SEVERE') {
+        div.innerHTML = 'Current Threat Level <span>' + level + '</span>'
+      } else {
+        div.innerHTML = ''
+      }
     }
   })
   wget(BBC_NEWS_URL, function (err, response) {
