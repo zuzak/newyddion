@@ -106,7 +106,7 @@ function poll () {
   }) */
   wget(REU_NEWS_URL, function (err, story) {
     if (!err) {
-      var blackList = [ 'Watch Live', 'Live Coverage' ]
+      var blackList = [ 'Watch Live', 'Live Coverage', 'Full Coverage' ]
       if (story && blackList.indexOf(story.label) === -1) {
         sendNews('reu', story.label, story.headline)
       } else {
