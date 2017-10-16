@@ -80,7 +80,10 @@ function poll () {
       if (level !== 'SEVERE') {
         div.innerHTML = 'Current Threat Level <span>' + level + '</span>'
       } else {
-        div.innerHTML = ''
+        wget('https://files.chippy.ch/newsboard/teaspoons.php', function (er, res) {
+          if (er) return
+          div.innerHTML = 'Teaspoons as of ' + res.date + '<span>' + res.count + '</span>';
+        })
       }
     }
   })
