@@ -97,6 +97,21 @@ function poll () {
       }
     }
   })
+  wget('http://localhost:3000', function (err, response) {
+    console.log('AAA', err, response)
+    if (!err) {
+      var res = []
+
+      for (var i = 0; i < response.length; i++) {
+        if (response[i] === 'ok' ) res.push('<span class="green">&#11045;</span>') // ⬥
+        if (response[i] === 'stale' ) res.push('<span class="yellow">&#x2B26;</span>') // ⬦
+        if (response[i] === 'old') res.push('span class="red">!</span>')
+      }
+      console.log(res, response, 'foo')
+      var div = document.querySelector('.local')
+      div.innerHTML = res.join(' ')
+    }
+  })
   /* wget(GDN_NEWS_URL, function (err, response) {
     if (!err) {
       var story = response.collections[0].content[0]

@@ -124,17 +124,31 @@ body, html {
     font-size: 0.8em;
 }
 .threatlevel {
+     position: fixed;
+     left: 3vh;
+     bottom: 3vh;
+     font-family: 'Source Sans Pro';
+     color: tomato;
+     text-align: center;
+     z-index: -2;
+ }
+.local {
     position: fixed;
-    left: 3vh;
+    right: 3vh;
     bottom: 3vh;
     font-family: 'Source Sans Pro';
-    color: tomato;
+    color: darkmagenta;
     text-align: center;
     z-index: -2;
+    font-size: 200%;
 }
 .screenSaver .threatlevel {
     left: inherit;
     right: 3vh;
+}
+.screenSaver .local {
+    right: inherit;
+    left: 3vh;
 }
 .threatlevel span {
     font-size: 3em;
@@ -231,4 +245,14 @@ body, html {
 }
 .travis .started {
     color: cyan;
+}
+
+.green {
+    color: #006435;
+}
+.yellow {
+color: #f47738;
+}
+.red {
+color: #df3034;
 }
