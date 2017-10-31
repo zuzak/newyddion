@@ -105,7 +105,7 @@ function poll () {
       for (var i = 0; i < response.length; i++) {
         if (response[i] === 'ok' ) res.push('<span class="green">&#11045;</span>') // ⬥
         if (response[i] === 'stale' ) res.push('<span class="yellow">&#x2B26;</span>') // ⬦
-        if (response[i] === 'old') res.push('span class="red">!</span>')
+        if (response[i] === 'old') res.push('<span class="red">!</span>')
       }
       console.log(res, response, 'foo')
       var div = document.querySelector('.local')
