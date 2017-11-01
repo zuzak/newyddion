@@ -205,7 +205,7 @@ function poll () {
     if (!err && data.status === 'ok') {
       var title = data.feed.title
       var news = data.items
-      var dateThreshold = Date.now() - 1000 * 60 * 60 // 1hr
+      var dateThreshold = Date.now() - 1000 * 60 * 15 // 15m
       for (var i = 0; i < news.length; i++) {
         var newsDate = new Date(news[i].pubDate)
         if (newsDate > dateThreshold) {
