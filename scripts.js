@@ -82,7 +82,7 @@ function poll () {
       } else {
         wget('https://files.chippy.ch/newsboard/teaspoons.php', function (er, res) {
           if (er) return
-          div.innerHTML = 'Teaspoons as of ' + res.date + '<span>' + res.count + '</span>';
+          div.innerHTML = 'Teaspoons as of ' + res.date + '<span>' + res.count + '</span>'
         })
       }
     }
@@ -103,8 +103,8 @@ function poll () {
       var res = []
 
       for (var i = 0; i < response.length; i++) {
-        if (response[i] === 'ok' ) res.push('<span class="green">&#x2B23;</span>') // black hexagon
-        if (response[i] === 'stale' ) res.push('<span class="yellow">&#x2B20;</span>') // white hexagon
+        if (response[i] === 'ok') res.push('<span class="green">&#x2B23;</span>') // black hexagon
+        if (response[i] === 'stale') res.push('<span class="yellow">&#x2B20;</span>') // white hexagon
         if (response[i] === 'old') res.push('<span class="red">&#x2B1F;</span>') // black pentagon
       }
       console.log(res, response, 'foo')
@@ -203,13 +203,15 @@ function poll () {
   })
   wget(BBC_LOCAL_URL, function (err, data) {
     if (!err && data.status === 'ok') {
-      var title = data.feed.title
+      var title = data.feed.title.split(' - ')[1]
       var news = data.items
-      var dateThreshold = Date.now() - 1000 * 60 * 15 // 15m
+      var timeoutLength = 1000 * 60 * 15 // 15m
       for (var i = 0; i < news.length; i++) {
         var newsDate = new Date(news[i].pubDate)
-        if (newsDate > dateThreshold) {
-          sendNews('bbc-local', title.split(' - ')[1], news[i].title, news[i].description)
+        if (((new Date()) - newsDate) < timeoutLength) {
+          sendNews('bbc-local', title, news[i].title, news[i].description)
+        } else {
+          sendNews('bbc-local')
         }
       }
     }
