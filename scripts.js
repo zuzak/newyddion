@@ -8,10 +8,18 @@ function wget (url, cb) {
     if (status === 200) {
       cb(null, xhr.response)
     } else {
+      sendNews('placeholder')
       cb(status)
     }
   }
-  xhr.send()
+  xhr.onerror = function (err) {
+    sendNews('placeholder', 'Problem', 'Something went wrong :(')
+  }
+  try {
+    xhr.send()
+  } catch (e) {
+    sendNews('placeholder', 'Oh no', e.message)
+  }
 }
 
 var BBC_NEWS_URL = 'https://polling.bbc.co.uk/news/latest_breaking_news_waf'
@@ -97,7 +105,7 @@ function poll () {
       }
     }
   })
-  wget('http://localhost:3000', function (err, response) {
+  /* wget('http://localhost:3000', function (err, response) {
     console.log('AAA', err, response)
     if (!err) {
       var res = []
@@ -111,7 +119,7 @@ function poll () {
       var div = document.querySelector('.local')
       div.innerHTML = res.join(' ')
     }
-  })
+  }) */
   /* wget(GDN_NEWS_URL, function (err, response) {
     if (!err) {
       var story = response.collections[0].content[0]
@@ -133,7 +141,11 @@ function poll () {
     }
   })
   wget('https://files.chippy.ch/newsboard/weather.php', function (err, weather) {
-    if (!err) {
+    if (err) {
+      console.log(err)
+      sendNews('placeholder', 'Problem connecting', 'Can\'t connect to the outside world')
+    } else {
+      sendNews('placeholder')
       var ul = document.createElement('ul')
       ul.className = 'weather'
       ul.id = 'js-weather'
