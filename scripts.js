@@ -8,17 +8,18 @@ function wget (url, cb) {
     if (status === 200) {
       cb(null, xhr.response)
     } else {
-      sendNews('placeholder')
+      // sendNews('placeholder')
       cb(status)
     }
   }
   xhr.onerror = function (err) {
-    sendNews('placeholder', 'Problem', 'Something went wrong :(')
+    cb(err)
   }
   try {
     xhr.send()
   } catch (e) {
-    sendNews('placeholder', 'Oh no', e.message)
+    cb(e)
+    // sendNews('placeholder', 'Oh no', e.message)
   }
 }
 
@@ -96,7 +97,9 @@ function poll () {
     }
   })
   wget(BBC_NEWS_URL, function (err, response) {
-    if (!err) {
+    if (err) {
+      sendNews('bbc')
+    } else {
       var story = response.asset
       if (story) {
         sendNews('bbc', 'BBC News', story.headline)
@@ -131,7 +134,9 @@ function poll () {
     }
   }) */
   wget(REU_NEWS_URL, function (err, story) {
-    if (!err) {
+    if (err) {
+      sendNews('reu')
+    } else {
       var blackList = [ 'Watch Live', 'Live Coverage', 'Full Coverage' ]
       if (story && blackList.indexOf(story.label) === -1) {
         sendNews('reu', story.label, story.headline)
@@ -142,8 +147,12 @@ function poll () {
   })
   wget('https://files.chippy.ch/newsboard/weather.php', function (err, weather) {
     if (err) {
-      console.log(err)
-      sendNews('placeholder', 'Problem connecting', 'Can\'t connect to the outside world')
+      var ul = document.createElement('ul')
+      ul.className = 'weather'
+      ul.id = 'js-weather'
+      var old = document.getElementById('js-weather')
+      old.parentNode.replaceChild(ul, old)
+      document.querySelector('.rainchance').innerHTML = ''
     } else {
       sendNews('placeholder')
       var ul = document.createElement('ul')
@@ -226,6 +235,8 @@ function poll () {
           sendNews('bbc-local')
         }
       }
+    } else {
+      sendNews('bbc-local')
     }
   })
   wget(REUTERS_WIRE_URL, function (err, data) {
@@ -238,13 +249,17 @@ function poll () {
           return sendNews('reu-wire', 'Reuters', story.headline, story.formattedDate)
         }
       }
+    } else {
+      sendNews('reu-wire')
     }
     sendNews('reu-wire')
   })
   wget(BLOOMBERG_URL, function (err, data) {
-    if (!err && data.items.length > 0) {
+    if (!err && data && data.items && data.items.length > 0) {
       var story = data.items[0]
       sendNews('bloomberg', story.editorialTitle, story.headline, story.type)
+    } else {
+      sendNews('bloomberg')
     }
   })
   // sendNews('bbc-local', 'Sheffield', 'Foo bar baz')
