@@ -199,7 +199,7 @@ function poll () {
         ],
         showArea: true,
         fullWidth: true,
-        // showLabel: false,
+        showLabel: false,
 
         axisY: {
           showGrid: false,
