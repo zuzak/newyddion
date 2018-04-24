@@ -193,9 +193,9 @@ function poll () {
         labels: labels
       }, {
         plugins: [
-          Chartist.plugins.ctPointLabels({
+          /*Chartist.plugins.ctPointLabels({
             textAnchor: 'middle'
-          })
+          })*/
         ],
         showArea: true,
         fullWidth: true,
@@ -210,7 +210,7 @@ function poll () {
         },
         axisX: {
           showGrid: false,
-          showLabel: false,
+          showLabel: true,
           offset: 0
         },
         chartPadding: {
