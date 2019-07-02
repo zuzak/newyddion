@@ -248,18 +248,20 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-size: 40vh;
+    font-size: 30vh;
     width: 140vh;;
     opacity: 1;
     background-color: inherit;
 }
 .offline {
     opacity: 1;
+
 }
 .offline .clock li {
     color: yellow;
+    opacity: 0.8;
 }
-.placeholder {
+.placeholder, .offline {
     background-color: black;
     background-image: none;
     color: gray;

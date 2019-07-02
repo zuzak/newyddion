@@ -236,6 +236,7 @@ const clockTick = function () {
   if (!navigator.onLine) {
     if (body.className.indexOf(placeholderClass) === -1) {
       body.className += ' ' + placeholderClass
+      output = {}
     }
   } else {
     document.getElementById('js-body').className.replace(' ' + placeholderClass, '')
