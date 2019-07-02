@@ -74,7 +74,7 @@ body, html {
     color: #990000;
 }
 
-.placeholder {
+.offline {
     color: rgba(33%, 33%, 33%, 0);
     background-color: #bbb;
     /* test card f */
@@ -89,6 +89,7 @@ body, html {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 0;
     margin: 0;
+    z-index: 1000;
 }
 
 .screenSaver .clock {
@@ -97,7 +98,7 @@ body, html {
 }
 .clock li {
     display: inline-block;
-    font-family: ntatabularnumbers;
+    font-family: ntatabularnumbers, "Overpass Mono", monospace;
 
 }
 .clock li::before{
@@ -112,14 +113,6 @@ body, html {
     color: black;
     font-size: 0.8em;
 }
-.threatlevel {
-     position: fixed;
-     left: 3vh;
-     bottom: 3vh;
-     color: tomato;
-     text-align: center;
-     z-index: -2;
- }
 .local {
     position: fixed;
     right: 3vh;
@@ -129,18 +122,12 @@ body, html {
     z-index: -2;
     font-size: 200%;
 }
-.screenSaver .threatlevel {
-    left: inherit;
-    right: 3vh;
-}
+
 .screenSaver .local {
     right: inherit;
     left: 3vh;
 }
-.threatlevel span {
-    font-size: 3em;
-    display:block;
-}
+
 .weather {
     font-size: 2vw;
     list-style-type: none;
@@ -249,5 +236,31 @@ color: #df3034;
 }
 
 html, body {
- 	font-family: nta;
+ 	font-family: nta, 'Overpass', sans-serif;
+}
+
+
+.offline .clock {
+
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 40vh;
+    width: 140vh;;
+    opacity: 1;
+    background-color: inherit;
+}
+.offline {
+    opacity: 1;
+}
+.offline .clock li {
+    color: yellow;
+}
+.placeholder {
+    background-color: black;
+    background-image: none;
+    color: gray;
 }
