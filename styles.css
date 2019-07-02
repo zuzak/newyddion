@@ -266,3 +266,7 @@ html, body {
     background-image: none;
     color: gray;
 }
+
+.offline .news, .offline .weather {
+display: none;
+}
