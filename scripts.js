@@ -231,15 +231,14 @@ const clockTick = function () {
       body.className += ' ' + screenSaverClass
     }
   } else {
-    document.getElementById('js-body').className.replace(' ' + screenSaverClass, '')
+    body.className = body.className.replace(' ' + screenSaverClass, '')
   }
   if (!navigator.onLine) {
     if (body.className.indexOf(placeholderClass) === -1) {
       body.className += ' ' + placeholderClass
-      output = {}
     }
   } else {
-    document.getElementById('js-body').className.replace(' ' + placeholderClass, '')
+    body.className = body.className.replace(' ' + placeholderClass, '')
   }
 }
 
