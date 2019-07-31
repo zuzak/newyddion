@@ -144,18 +144,19 @@ body, html {
     margin-left: 2em;
     margin-right: 0;
 }
-.jaffacake {
+.co2 {
   position: fixed;
-  left: 3vw;
+ /* right: 3vw; */
   bottom: 3vh;
-  color: orange;
+  color: darkolivegreen;
+  text-align: center;
 }
-.screenSaver .jaffacake {
+.screenSaver .co2 {
     right: 3vw;
     bottom: 3vh;
 
 }
-.jaffacake span {
+.co2 span {
     display: block;
     font-size: 3em;
 }

@@ -27,7 +27,6 @@ var BBC_NEWS_URL = 'https://polling.bbc.co.uk/news/latest_breaking_news_waf'
 var REU_NEWS_URL = 'https://files.chippy.ch/newsboard/reuters.php' // proxy of http://uk.reuters.com/assets/breakingNews?view=json
 var BBC_LOCAL_URL = 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fengland%2Fsouth_yorkshire%2Frss.xml'
 var REUTERS_WIRE_URL = 'https://files.chippy.ch/newsboard/reuterswire.php' // proxy of https://uk.reuters.com/assets/jsonWireNews#'
-var MI5_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.mi5.gov.uk/UKThreatLevel/UKThreatLevel.xml'
 var output = {}
 
 function sendNews (provider, header, headline, description) {
@@ -112,6 +111,7 @@ function poll () {
       }
       var old = document.getElementById('js-weather')
       old.parentNode.replaceChild(ul, old)
+      document.getElementById('js-co2').textContent = weather.co2
       var labels = new Array(60)
       labels[5 - 1] = 'five minutes'
       labels[10 - 1] = 'ten'
@@ -188,7 +188,7 @@ function poll () {
       sendNews('reu-wire')
     }
     sendNews('reu-wire')
-  });
+  })
   // sendNews('bbc-local', 'Sheffield', 'Foo bar baz')
 
 }
