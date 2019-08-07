@@ -145,11 +145,14 @@ body, html {
     margin-right: 0;
 }
 .co2 {
-  position: fixed;
- /* right: 3vw; */
-  bottom: 3vh;
-  color: darkolivegreen;
-  text-align: center;
+    position: fixed;
+    /* right: 3vw; */
+    bottom: 3vh;
+    color: #fff;
+    text-align: center;
+    background: #333;
+    padding: 0 1em;
+    opacity: 0.6;
 }
 .screenSaver .co2 {
     right: 3vw;
